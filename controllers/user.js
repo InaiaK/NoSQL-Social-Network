@@ -9,6 +9,7 @@ const user = {
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.json(err));
   },
+  
     // get all users
     getAllUser(req, res) {
       User.find({})
