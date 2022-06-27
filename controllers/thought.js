@@ -1,6 +1,6 @@
 const { Thought, User } = require("../models");
 
-const thoughtController = {
+const thought = {
   // get all Thoughts
   getAllThought(req, res) {
     Thought.find({})
@@ -43,7 +43,7 @@ const thoughtController = {
     Thought.create(body)
       .then(({ _id }) => {
         return User.findOneAndUpdate(
-          { _id: body.userId },
+          { _id: body.username },
           { $push: { thoughts: _id } },
           { new: true }
         );
@@ -131,4 +131,4 @@ const thoughtController = {
   },
 };
 
-module.exports = thoughtController;
+module.exports = thought;

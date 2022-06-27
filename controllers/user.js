@@ -27,7 +27,7 @@ const user = {
     },
 
     // get one user by ID
-    getUserById(req, res) {
+    getUserById({params}, res) {
         User.findOne({_id: params.id})
           .populate({
             path: "thoughts",
@@ -52,7 +52,7 @@ const user = {
           });
       },
         // update user by id
-  updateUser({ params, body }, res) {
+  updatedUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: params.id }, body, {
       new: true,
       runValidators: true,
@@ -116,4 +116,4 @@ const user = {
       .catch((err) => res.json(err));
   },
 };
-module.exports = userController;
+module.exports = user;
