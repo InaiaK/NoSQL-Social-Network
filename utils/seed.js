@@ -13,6 +13,10 @@ connection.once('open', async () => {
   // Drop existing Thought
   await Thought.deleteMany({});
 
+  
+  // Drop existing Rection
+  await Rection.deleteMany({});
+
   // Create empty array to hold the users
   const users= [];
 
@@ -21,13 +25,13 @@ connection.once('open', async () => {
     const username = `user${i}`;
     const email = `user${i}@mail.com`
     const thoughts = []
-    const friends = []
+    const reaction = []
 
     users.push({
       username,
       email,
       thoughts,
-      friends,
+      reaction,
     });
   }
 
